@@ -1,0 +1,2150 @@
+{
+    "__meta__": {
+        "version": [
+            2,
+            5
+        ],
+        "compiler": "https://github.com/p4lang/p4c-bm"
+    },
+    "header_types": [
+        {
+            "name": "standard_metadata_t",
+            "id": 0,
+            "fields": [
+                [
+                    "ingress_port",
+                    9
+                ],
+                [
+                    "packet_length",
+                    32
+                ],
+                [
+                    "egress_spec",
+                    9
+                ],
+                [
+                    "egress_port",
+                    9
+                ],
+                [
+                    "egress_instance",
+                    32
+                ],
+                [
+                    "instance_type",
+                    32
+                ],
+                [
+                    "clone_spec",
+                    32
+                ],
+                [
+                    "_padding",
+                    5
+                ]
+            ],
+            "length_exp": null,
+            "max_length": null
+        },
+        {
+            "name": "ethernet_t",
+            "id": 1,
+            "fields": [
+                [
+                    "dstAddr",
+                    48
+                ],
+                [
+                    "srcAddr",
+                    48
+                ],
+                [
+                    "etherType",
+                    16
+                ]
+            ],
+            "length_exp": null,
+            "max_length": null
+        },
+        {
+            "name": "ipv4_t",
+            "id": 2,
+            "fields": [
+                [
+                    "version",
+                    4
+                ],
+                [
+                    "ihl",
+                    4
+                ],
+                [
+                    "diffserv",
+                    8
+                ],
+                [
+                    "totalLen",
+                    16
+                ],
+                [
+                    "identification",
+                    16
+                ],
+                [
+                    "flags",
+                    3
+                ],
+                [
+                    "fragOffset",
+                    13
+                ],
+                [
+                    "ttl",
+                    8
+                ],
+                [
+                    "protocol",
+                    8
+                ],
+                [
+                    "hdrChecksum",
+                    16
+                ],
+                [
+                    "srcAddr",
+                    32
+                ],
+                [
+                    "dstAddr",
+                    32
+                ]
+            ],
+            "length_exp": null,
+            "max_length": null
+        },
+        {
+            "name": "tcp_t",
+            "id": 3,
+            "fields": [
+                [
+                    "srcPort",
+                    16
+                ],
+                [
+                    "dstPort",
+                    16
+                ],
+                [
+                    "seqNo",
+                    32
+                ],
+                [
+                    "ackNo",
+                    32
+                ],
+                [
+                    "dataOffset",
+                    4
+                ],
+                [
+                    "res",
+                    4
+                ],
+                [
+                    "flags",
+                    3
+                ],
+                [
+                    "ack",
+                    1
+                ],
+                [
+                    "psh",
+                    1
+                ],
+                [
+                    "rst",
+                    1
+                ],
+                [
+                    "syn",
+                    1
+                ],
+                [
+                    "fin",
+                    1
+                ],
+                [
+                    "window",
+                    16
+                ],
+                [
+                    "checksum",
+                    16
+                ],
+                [
+                    "urgentPtr",
+                    16
+                ]
+            ],
+            "length_exp": null,
+            "max_length": null
+        },
+        {
+            "name": "meta_t",
+            "id": 4,
+            "fields": [
+                [
+                    "in_port",
+                    8
+                ],
+                [
+                    "eth_sa",
+                    48
+                ],
+                [
+                    "eth_da",
+                    48
+                ],
+                [
+                    "ipv4_sa",
+                    32
+                ],
+                [
+                    "ipv4_da",
+                    32
+                ],
+                [
+                    "ipv4_protocol",
+                    8
+                ],
+                [
+                    "nhop_ipv4",
+                    32
+                ],
+                [
+                    "tcpLength",
+                    16
+                ],
+                [
+                    "masksa",
+                    32
+                ],
+                [
+                    "maskda",
+                    32
+                ],
+                [
+                    "maskprotocol",
+                    8
+                ],
+                [
+                    "masktcpsp",
+                    16
+                ],
+                [
+                    "masktcpdp",
+                    16
+                ],
+                [
+                    "sketch_in",
+                    4
+                ],
+                [
+                    "bitmap",
+                    4
+                ],
+                [
+                    "tempsa",
+                    32
+                ],
+                [
+                    "tempda",
+                    32
+                ],
+                [
+                    "tempprotocol",
+                    8
+                ],
+                [
+                    "temptcpsp",
+                    16
+                ],
+                [
+                    "temptcpdp",
+                    16
+                ],
+                [
+                    "hash1index",
+                    13
+                ],
+                [
+                    "hash2index",
+                    13
+                ],
+                [
+                    "hash1count",
+                    16
+                ],
+                [
+                    "hash2count",
+                    16
+                ],
+                [
+                    "tcp_sp",
+                    16
+                ],
+                [
+                    "tcp_dp",
+                    16
+                ],
+                [
+                    "tcp_ack",
+                    1
+                ],
+                [
+                    "tcp_psh",
+                    1
+                ],
+                [
+                    "tcp_rst",
+                    1
+                ],
+                [
+                    "tcp_syn",
+                    1
+                ],
+                [
+                    "tcp_fin",
+                    1
+                ],
+                [
+                    "tcp_seqNo",
+                    32
+                ],
+                [
+                    "tcp_ackNo",
+                    32
+                ],
+                [
+                    "_padding",
+                    1
+                ]
+            ],
+            "length_exp": null,
+            "max_length": null
+        }
+    ],
+    "headers": [
+        {
+            "name": "standard_metadata",
+            "id": 0,
+            "header_type": "standard_metadata_t",
+            "metadata": true
+        },
+        {
+            "name": "ethernet",
+            "id": 1,
+            "header_type": "ethernet_t",
+            "metadata": false
+        },
+        {
+            "name": "ipv4",
+            "id": 2,
+            "header_type": "ipv4_t",
+            "metadata": false
+        },
+        {
+            "name": "tcp",
+            "id": 3,
+            "header_type": "tcp_t",
+            "metadata": false
+        },
+        {
+            "name": "meta",
+            "id": 4,
+            "header_type": "meta_t",
+            "metadata": true
+        }
+    ],
+    "header_stacks": [],
+    "parsers": [
+        {
+            "name": "parser",
+            "id": 0,
+            "init_state": "start",
+            "parse_states": [
+                {
+                    "name": "start",
+                    "id": 0,
+                    "parser_ops": [
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "in_port"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "standard_metadata",
+                                        "ingress_port"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "transition_key": [],
+                    "transitions": [
+                        {
+                            "type": "default",
+                            "value": null,
+                            "mask": null,
+                            "next_state": "parse_ethernet"
+                        }
+                    ]
+                },
+                {
+                    "name": "parse_ethernet",
+                    "id": 1,
+                    "parser_ops": [
+                        {
+                            "op": "extract",
+                            "parameters": [
+                                {
+                                    "type": "regular",
+                                    "value": "ethernet"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "eth_da"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "ethernet",
+                                        "dstAddr"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "eth_sa"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "ethernet",
+                                        "srcAddr"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "transition_key": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "ethernet",
+                                "etherType"
+                            ]
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "type": "hexstr",
+                            "value": "0x0800",
+                            "mask": null,
+                            "next_state": "parse_ipv4"
+                        },
+                        {
+                            "type": "default",
+                            "value": null,
+                            "mask": null,
+                            "next_state": null
+                        }
+                    ]
+                },
+                {
+                    "name": "parse_ipv4",
+                    "id": 2,
+                    "parser_ops": [
+                        {
+                            "op": "extract",
+                            "parameters": [
+                                {
+                                    "type": "regular",
+                                    "value": "ipv4"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "ipv4_sa"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "ipv4",
+                                        "srcAddr"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "ipv4_da"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "ipv4",
+                                        "dstAddr"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcpLength"
+                                    ]
+                                },
+                                {
+                                    "type": "expression",
+                                    "value": {
+                                        "type": "expression",
+                                        "value": {
+                                            "op": "-",
+                                            "left": {
+                                                "type": "field",
+                                                "value": [
+                                                    "ipv4",
+                                                    "totalLen"
+                                                ]
+                                            },
+                                            "right": {
+                                                "type": "hexstr",
+                                                "value": "0x14"
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "ipv4_protocol"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "ipv4",
+                                        "protocol"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "transition_key": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "ipv4",
+                                "protocol"
+                            ]
+                        }
+                    ],
+                    "transitions": [
+                        {
+                            "type": "hexstr",
+                            "value": "0x06",
+                            "mask": null,
+                            "next_state": "parse_tcp"
+                        },
+                        {
+                            "type": "default",
+                            "value": null,
+                            "mask": null,
+                            "next_state": null
+                        }
+                    ]
+                },
+                {
+                    "name": "parse_tcp",
+                    "id": 3,
+                    "parser_ops": [
+                        {
+                            "op": "extract",
+                            "parameters": [
+                                {
+                                    "type": "regular",
+                                    "value": "tcp"
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_sp"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "srcPort"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_dp"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "dstPort"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_ack"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "ack"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_psh"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "psh"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_rst"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "rst"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_syn"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "syn"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_fin"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "fin"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_seqNo"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "seqNo"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "op": "set",
+                            "parameters": [
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "meta",
+                                        "tcp_ackNo"
+                                    ]
+                                },
+                                {
+                                    "type": "field",
+                                    "value": [
+                                        "tcp",
+                                        "ackNo"
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    "transition_key": [],
+                    "transitions": [
+                        {
+                            "type": "default",
+                            "value": null,
+                            "mask": null,
+                            "next_state": null
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "parse_vsets": [],
+    "deparsers": [
+        {
+            "name": "deparser",
+            "id": 0,
+            "order": [
+                "ethernet",
+                "ipv4",
+                "tcp"
+            ]
+        }
+    ],
+    "meter_arrays": [],
+    "actions": [
+        {
+            "name": "set_nhop",
+            "id": 0,
+            "runtime_data": [
+                {
+                    "name": "nhop_ipv4",
+                    "bitwidth": 32
+                },
+                {
+                    "name": "port",
+                    "bitwidth": 9
+                }
+            ],
+            "primitives": [
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "nhop_ipv4"
+                            ]
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "standard_metadata",
+                                "egress_spec"
+                            ]
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "op": "add_to_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "ipv4",
+                                "ttl"
+                            ]
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "-0x1"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "config",
+            "id": 1,
+            "runtime_data": [
+                {
+                    "name": "sketch_cur",
+                    "bitwidth": 16
+                },
+                {
+                    "name": "offset",
+                    "bitwidth": 16
+                },
+                {
+                    "name": "masksa",
+                    "bitwidth": 32
+                },
+                {
+                    "name": "maskda",
+                    "bitwidth": 32
+                },
+                {
+                    "name": "maskprotocol",
+                    "bitwidth": 8
+                },
+                {
+                    "name": "masktcpsp",
+                    "bitwidth": 16
+                },
+                {
+                    "name": "masktcpdp",
+                    "bitwidth": 16
+                }
+            ],
+            "primitives": [
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "sketch_in"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": ">>",
+                                    "left": {
+                                        "type": "expression",
+                                        "value": {
+                                            "op": "&",
+                                            "left": {
+                                                "type": "field",
+                                                "value": [
+                                                    "meta",
+                                                    "bitmap"
+                                                ]
+                                            },
+                                            "right": {
+                                                "type": "local",
+                                                "value": 0
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "tempsa"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": "&",
+                                    "left": {
+                                        "type": "field",
+                                        "value": [
+                                            "meta",
+                                            "ipv4_sa"
+                                        ]
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 2
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "tempda"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": "&",
+                                    "left": {
+                                        "type": "field",
+                                        "value": [
+                                            "meta",
+                                            "ipv4_da"
+                                        ]
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 3
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "tempprotocol"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": "&",
+                                    "left": {
+                                        "type": "field",
+                                        "value": [
+                                            "meta",
+                                            "ipv4_protocol"
+                                        ]
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 4
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "temptcpsp"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": "&",
+                                    "left": {
+                                        "type": "field",
+                                        "value": [
+                                            "meta",
+                                            "tcp_sp"
+                                        ]
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 5
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "temptcpdp"
+                            ]
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": "&",
+                                    "left": {
+                                        "type": "field",
+                                        "value": [
+                                            "meta",
+                                            "tcp_dp"
+                                        ]
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 6
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x5"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "bitmap"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x6"
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x7"
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 1
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x2"
+                        },
+                        {
+                            "type": "expression",
+                            "value": {
+                                "type": "expression",
+                                "value": {
+                                    "op": ">>",
+                                    "left": {
+                                        "type": "expression",
+                                        "value": {
+                                            "op": "&",
+                                            "left": {
+                                                "type": "field",
+                                                "value": [
+                                                    "meta",
+                                                    "bitmap"
+                                                ]
+                                            },
+                                            "right": {
+                                                "type": "local",
+                                                "value": 0
+                                            }
+                                        }
+                                    },
+                                    "right": {
+                                        "type": "local",
+                                        "value": 1
+                                    }
+                                }
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "set_dmac",
+            "id": 2,
+            "runtime_data": [
+                {
+                    "name": "dmac",
+                    "bitwidth": 48
+                }
+            ],
+            "primitives": [
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "ethernet",
+                                "dstAddr"
+                            ]
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "countsketch0",
+            "id": 3,
+            "runtime_data": [],
+            "primitives": [
+                {
+                    "op": "modify_field_with_hash_based_offset",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1index"
+                            ]
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x0"
+                        },
+                        {
+                            "type": "calculation",
+                            "value": "sketch_h1_hash"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x2000"
+                        }
+                    ]
+                },
+                {
+                    "op": "register_read",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1count"
+                            ]
+                        },
+                        {
+                            "type": "register_array",
+                            "value": "sketch00"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1index"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "add_to_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1count"
+                            ]
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "sketch00"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1index"
+                            ]
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1count"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "modify_field_with_hash_based_offset",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2index"
+                            ]
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x0"
+                        },
+                        {
+                            "type": "calculation",
+                            "value": "sketch_h2_hash"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x2000"
+                        }
+                    ]
+                },
+                {
+                    "op": "register_read",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2count"
+                            ]
+                        },
+                        {
+                            "type": "register_array",
+                            "value": "sketch01"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2index"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "add_to_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2count"
+                            ]
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x1"
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "sketch01"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2index"
+                            ]
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2count"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x3"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash1count"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x4"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "hash2count"
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x8"
+                        },
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "sketch_in"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "bitmapInit",
+            "id": 4,
+            "runtime_data": [
+                {
+                    "name": "bitmap",
+                    "bitwidth": 16
+                }
+            ],
+            "primitives": [
+                {
+                    "op": "modify_field",
+                    "parameters": [
+                        {
+                            "type": "field",
+                            "value": [
+                                "meta",
+                                "bitmap"
+                            ]
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                },
+                {
+                    "op": "register_write",
+                    "parameters": [
+                        {
+                            "type": "register_array",
+                            "value": "debug"
+                        },
+                        {
+                            "type": "hexstr",
+                            "value": "0x1"
+                        },
+                        {
+                            "type": "runtime_data",
+                            "value": 0
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "_no_op",
+            "id": 5,
+            "runtime_data": [],
+            "primitives": [
+                {
+                    "op": "no_op",
+                    "parameters": []
+                }
+            ]
+        },
+        {
+            "name": "_drop",
+            "id": 6,
+            "runtime_data": [],
+            "primitives": [
+                {
+                    "op": "drop",
+                    "parameters": []
+                }
+            ]
+        }
+    ],
+    "pipelines": [
+        {
+            "name": "ingress",
+            "id": 0,
+            "init_table": "bitmaptable",
+            "tables": [
+                {
+                    "name": "bitmaptable",
+                    "id": 0,
+                    "match_type": "ternary",
+                    "type": "simple",
+                    "max_size": 16384,
+                    "with_counters": false,
+                    "direct_meters": null,
+                    "support_timeout": false,
+                    "key": [
+                        {
+                            "match_type": "ternary",
+                            "target": [
+                                "meta",
+                                "ipv4_sa"
+                            ],
+                            "mask": null
+                        },
+                        {
+                            "match_type": "ternary",
+                            "target": [
+                                "meta",
+                                "ipv4_da"
+                            ],
+                            "mask": null
+                        },
+                        {
+                            "match_type": "ternary",
+                            "target": [
+                                "meta",
+                                "ipv4_protocol"
+                            ],
+                            "mask": null
+                        },
+                        {
+                            "match_type": "ternary",
+                            "target": [
+                                "meta",
+                                "tcp_sp"
+                            ],
+                            "mask": null
+                        },
+                        {
+                            "match_type": "ternary",
+                            "target": [
+                                "meta",
+                                "tcp_dp"
+                            ],
+                            "mask": null
+                        }
+                    ],
+                    "actions": [
+                        "_no_op",
+                        "bitmapInit"
+                    ],
+                    "next_tables": {
+                        "_no_op": "config_table0",
+                        "bitmapInit": "config_table0"
+                    },
+                    "base_default_next": "config_table0"
+                },
+                {
+                    "name": "config_table0",
+                    "id": 1,
+                    "match_type": "exact",
+                    "type": "simple",
+                    "max_size": 16384,
+                    "with_counters": false,
+                    "direct_meters": null,
+                    "support_timeout": false,
+                    "key": [],
+                    "actions": [
+                        "config",
+                        "_no_op"
+                    ],
+                    "next_tables": {
+                        "config": "sketch0",
+                        "_no_op": "sketch0"
+                    },
+                    "base_default_next": "sketch0"
+                },
+                {
+                    "name": "sketch0",
+                    "id": 2,
+                    "match_type": "exact",
+                    "type": "simple",
+                    "max_size": 16384,
+                    "with_counters": false,
+                    "direct_meters": null,
+                    "support_timeout": false,
+                    "key": [
+                        {
+                            "match_type": "exact",
+                            "target": [
+                                "meta",
+                                "sketch_in"
+                            ],
+                            "mask": null
+                        }
+                    ],
+                    "actions": [
+                        "countsketch0",
+                        "_no_op"
+                    ],
+                    "next_tables": {
+                        "countsketch0": "ipv4_lpm_table",
+                        "_no_op": "ipv4_lpm_table"
+                    },
+                    "base_default_next": "ipv4_lpm_table"
+                },
+                {
+                    "name": "ipv4_lpm_table",
+                    "id": 3,
+                    "match_type": "lpm",
+                    "type": "simple",
+                    "max_size": 1024,
+                    "with_counters": false,
+                    "direct_meters": null,
+                    "support_timeout": false,
+                    "key": [
+                        {
+                            "match_type": "lpm",
+                            "target": [
+                                "ipv4",
+                                "dstAddr"
+                            ],
+                            "mask": null
+                        }
+                    ],
+                    "actions": [
+                        "set_nhop",
+                        "_drop"
+                    ],
+                    "next_tables": {
+                        "set_nhop": "forward_table",
+                        "_drop": "forward_table"
+                    },
+                    "base_default_next": "forward_table"
+                },
+                {
+                    "name": "forward_table",
+                    "id": 4,
+                    "match_type": "exact",
+                    "type": "simple",
+                    "max_size": 512,
+                    "with_counters": false,
+                    "direct_meters": null,
+                    "support_timeout": false,
+                    "key": [
+                        {
+                            "match_type": "exact",
+                            "target": [
+                                "meta",
+                                "nhop_ipv4"
+                            ],
+                            "mask": null
+                        }
+                    ],
+                    "actions": [
+                        "set_dmac",
+                        "_drop"
+                    ],
+                    "next_tables": {
+                        "set_dmac": null,
+                        "_drop": null
+                    },
+                    "base_default_next": null
+                }
+            ],
+            "action_profiles": [],
+            "conditionals": []
+        },
+        {
+            "name": "egress",
+            "id": 1,
+            "init_table": null,
+            "tables": [],
+            "action_profiles": [],
+            "conditionals": []
+        }
+    ],
+    "calculations": [
+        {
+            "name": "ipv4_checksum",
+            "id": 0,
+            "input": [
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "version"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "ihl"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "diffserv"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "totalLen"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "identification"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "flags"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "fragOffset"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "ttl"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "protocol"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "srcAddr"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "dstAddr"
+                    ]
+                }
+            ],
+            "algo": "csum16"
+        },
+        {
+            "name": "tcp_checksum",
+            "id": 1,
+            "input": [
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "srcAddr"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "dstAddr"
+                    ]
+                },
+                {
+                    "type": "hexstr",
+                    "value": "0x00",
+                    "bitwidth": 8
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "ipv4",
+                        "protocol"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tcpLength"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "srcPort"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "dstPort"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "seqNo"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "ackNo"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "dataOffset"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "res"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "flags"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "ack"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "psh"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "rst"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "syn"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "fin"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "window"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "tcp",
+                        "urgentPtr"
+                    ]
+                },
+                {
+                    "type": "payload"
+                }
+            ],
+            "algo": "csum16"
+        },
+        {
+            "name": "sketch_h1_hash",
+            "id": 2,
+            "input": [
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempsa"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempda"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempprotocol"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "temptcpsp"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "temptcpdp"
+                    ]
+                }
+            ],
+            "algo": "crc16"
+        },
+        {
+            "name": "sketch_h2_hash",
+            "id": 3,
+            "input": [
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempsa"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempda"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "tempprotocol"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "temptcpsp"
+                    ]
+                },
+                {
+                    "type": "field",
+                    "value": [
+                        "meta",
+                        "temptcpdp"
+                    ]
+                }
+            ],
+            "algo": "csum16"
+        }
+    ],
+    "checksums": [
+        {
+            "name": "ipv4.hdrChecksum|ipv4_checksum",
+            "id": 0,
+            "target": [
+                "ipv4",
+                "hdrChecksum"
+            ],
+            "type": "generic",
+            "calculation": "ipv4_checksum",
+            "if_cond": null
+        },
+        {
+            "name": "tcp.checksum|tcp_checksum",
+            "id": 1,
+            "target": [
+                "tcp",
+                "checksum"
+            ],
+            "type": "generic",
+            "calculation": "tcp_checksum",
+            "if_cond": {
+                "type": "expression",
+                "value": {
+                    "op": "valid",
+                    "left": null,
+                    "right": {
+                        "type": "header",
+                        "value": "tcp"
+                    }
+                }
+            }
+        }
+    ],
+    "learn_lists": [],
+    "field_lists": [],
+    "counter_arrays": [],
+    "register_arrays": [
+        {
+            "name": "sketch00",
+            "id": 0,
+            "bitwidth": 16,
+            "size": 8192
+        },
+        {
+            "name": "sketch01",
+            "id": 1,
+            "bitwidth": 16,
+            "size": 8192
+        },
+        {
+            "name": "debug",
+            "id": 2,
+            "bitwidth": 16,
+            "size": 10
+        }
+    ],
+    "force_arith": [
+        [
+            "standard_metadata",
+            "ingress_port"
+        ],
+        [
+            "standard_metadata",
+            "packet_length"
+        ],
+        [
+            "standard_metadata",
+            "egress_spec"
+        ],
+        [
+            "standard_metadata",
+            "egress_port"
+        ],
+        [
+            "standard_metadata",
+            "egress_instance"
+        ],
+        [
+            "standard_metadata",
+            "instance_type"
+        ],
+        [
+            "standard_metadata",
+            "clone_spec"
+        ],
+        [
+            "standard_metadata",
+            "_padding"
+        ]
+    ]
+}

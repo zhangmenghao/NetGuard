@@ -1,0 +1,14 @@
+table_set_default bitmaptable _no_op
+table_set_default config_table0  _no_op
+table_set_default config_table1 _no_op
+table_set_default sketch0 _no_op
+table_set_default ipv4_lpm_table _drop
+table_set_default forward_table _drop
+table_add bitmaptable bitmapInit 10.0.0.10&&&0xffffffff 10.0.0.20&&&0xffffffff 0x0&&&0x0 0x0&&&0x0 0x0&&&0x0 => 0x0001 1
+table_add sketch0 countsketch0 1 => 
+table_add config_table0 config =>  1 0 0xffff 0xffff 0x0 0x0 0x0 
+table_add config_table1 config => 2 1 0xffff 0xffff 0x0 0x0 0x0
+table_add ipv4_lpm_table set_nhop  10.0.0.10/32  => 10.0.0.10 1 
+table_add ipv4_lpm_table set_nhop  10.0.0.20/32  => 10.0.0.20 2 
+table_add forward_table set_dmac  10.0.0.10 => 00:04:00:00:00:10 
+table_add forward_table set_dmac  10.0.0.20 => 00:05:00:00:00:10 
