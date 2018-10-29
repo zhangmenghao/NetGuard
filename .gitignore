@@ -1,0 +1,18 @@
+#for vim temp files
+*.swp
+*.swo
+#for pacp
+*.pcap
+*.pyc
+#for dot
+*.dot
+*~
+#png
+*.png
+*.pcapng
+*.json
+
+*.psd
+
+#vscode
+.vscode/*
