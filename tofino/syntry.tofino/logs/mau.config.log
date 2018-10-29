@@ -1,0 +1,28 @@
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=0] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=1] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=1] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=0] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=0] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=0] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=3] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=0] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=2] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=1] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=0] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=3] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.
+TODO: Currently PHV container valid bits are disabled.  Matching on a valid bit will require using a POV bit.
+TODO: rams.match.merge.tind_bus_prop[tind_bus_number=1] is currently always set to 1.
+TODO: rams.match.merge.tcam_table_prop[tcam_table_id=2] is currently always set to 1.
+TODO: tcams.tcam_piped is currently always set to True for ingress and egress.

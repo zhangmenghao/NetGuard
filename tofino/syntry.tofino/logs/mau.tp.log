@@ -1,0 +1,11 @@
++---------------------------------------------------------------------+
+|  Log file: mau.tp.log                                               |
+|  Compiler version: 4.1.1 (bfc362d)                                  |
+|  Created on: Sat Oct 27 04:24:54 2018                               |
++---------------------------------------------------------------------+
+
+Decided that match table write_time_in is more efficiently allocated using hash-action to write_time_in.
+Decided that match table write_time_eg is more efficiently allocated using hash-action to write_time_eg.
+Decided that match table read_seq is more efficiently allocated using hash-action to h2_seq.
+Decided that match table read_seq_reverse is more efficiently allocated using hash-action to h2_seq.
+Decided that match table write_seq is more efficiently allocated using hash-action to h2_seq.
