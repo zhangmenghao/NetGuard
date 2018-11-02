@@ -299,6 +299,9 @@ action sendback_sa()
 	modify_field(ethernet.dstAddr, meta.eth_sa);
 	modify_field(ethernet.srcAddr, meta.eth_da);
 		
+	modify_field(ipv4.diffserv,meta.tcp_session_map_index);
+	modify_field(ipv4.identification,meta.reverse_tcp_session_map_index);
+
 	modify_field(ig_intr_md_for_tm.ucast_egress_port, meta.in_port);
 
 }

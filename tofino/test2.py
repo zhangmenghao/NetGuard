@@ -113,29 +113,26 @@ class L2Test(pd_base_tests.ThriftInterfaceDataPlane):
             pass
 
     def runTest(self):
-        try:
-            self.client.init_set_default_action_init_action(self.sess_hdl,self.dev_tgt,
-            synproxy_init_action_action_spec_t(16000,16000));
+	self.client.init_set_default_action_init_action_(self.sess_hdl,self.dev_tgt,
+	synproxy_init_action__action_spec_t(16000,16000));
 
-            self.client.session_init_table_set_default_action_sendback_sa(self.sess_hdl,self.dev_tgt);
-            self.client.session_complete_table_set_default_action_sendh2syn(self.sess_hdl,self.dev_tgt);
-            self.client.relay_session_table_set_default_action_sendh2ack(self.sess_hdl,self.dev_tgt);
-            self.client.inbound_tran_table_set_default_action_inbound_transformation(self.sess_hdl,self.dev_tgt);
-            self.client.outbound_tran_table_set_default_action_outbound_transformation(self.sess_hdl,self.dev_tgt);
+	self.client.session_init_table_set_default_action_sendback_sa(self.sess_hdl,self.dev_tgt);
+	self.client.session_complete_table_set_default_action_sendh2syn(self.sess_hdl,self.dev_tgt);
+	self.client.relay_session_table_set_default_action_sendh2ack(self.sess_hdl,self.dev_tgt);
+	self.client.inbound_tran_table_set_default_action_inbound_transformation(self.sess_hdl,self.dev_tgt);
+	self.client.outbound_tran_table_set_default_action_outbound_transformation(self.sess_hdl,self.dev_tgt);
 
-            self.client.session_check_set_default_action_lookup_session_map(self.sess_hdl,self.dev_tgt);
-            self.client.session_check_reverse_set_default_action_lookup_session_map_reverse(self.sess_hdl,self.dev_tgt);
-            self.client.set_heavy_hitter_count_table_1_set_default_action_set_heavy_hitter_count_1(self.sess_hdl,self.dev_tgt);
-            self.client.set_heavy_hitter_count_table_2_set_default_action_set_heavy_hitter_count_2(self.sess_hdl,self.dev_tgt);
-            self.client.acl_set_default_action_nop(self.sess_hdl,self.dev_tgt);
+	self.client.session_check_set_default_action_lookup_session_map(self.sess_hdl,self.dev_tgt);
+	self.client.session_check_reverse_set_default_action_lookup_session_map_reverse(self.sess_hdl,self.dev_tgt);
+	self.client.set_heavy_hitter_count_table_1_set_default_action_set_heavy_hitter_count_1(self.sess_hdl,self.dev_tgt);
+	self.client.set_heavy_hitter_count_table_2_set_default_action_set_heavy_hitter_count_2(self.sess_hdl,self.dev_tgt);
+	self.client.acl_set_default_action_nop(self.sess_hdl,self.dev_tgt);
 
-            self.client.update_countt_set_default_action_update_countt(self.sess_hdl, self.dev_tgt)
-            self.client.time32_in_set_default_action_time32_in(self.sess_hdl, self.dev_tgt)
-            #self.client.write_time_in_set_default_action_write_time_in(self.sess_hdl, self.dev_tgt)
-            self.client.time32_eg_set_default_action_time32_eg(self.sess_hdl, self.dev_tgt)
-            #self.client.write_time_eg_set_default_action_write_time_eg(self.sess_hdl, self.dev_tgt)
-        except Exception as e:
-            pass
+	self.client.update_countt_set_default_action_update_countt(self.sess_hdl, self.dev_tgt)
+	self.client.time32_in_set_default_action_time32_in(self.sess_hdl, self.dev_tgt)
+	#self.client.write_time_in_set_default_action_write_time_in(self.sess_hdl, self.dev_tgt)
+	self.client.time32_eg_set_default_action_time32_eg(self.sess_hdl, self.dev_tgt)
+	#self.client.write_time_eg_set_default_action_write_time_eg(self.sess_hdl, self.dev_tgt)
         self.conn_mgr.complete_operations(self.sess_hdl)
         while(True):
             pass
