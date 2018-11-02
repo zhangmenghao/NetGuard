@@ -465,9 +465,9 @@ table acl{
        }
 }
 table init{
-	actions{init_action;}
+	actions{init_action_;}
 }
-action init_action(thres1,thres2){
+action init_action_(thres1,thres2){
 	modify_field(meta.thres1,thres1);
 	modify_field(meta.thres2,thres2);
 }

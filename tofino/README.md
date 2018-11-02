@@ -2,7 +2,7 @@
 
 ./qy_build.sh compile script
 
-syntry.p4 the major version
-syntry3.p4 simplified version, for testing
+A functional SYNProxy;Now deployed on 130.
 
-test.py controller, initializing and installing table entries
+
+
